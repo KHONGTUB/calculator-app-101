@@ -4,6 +4,10 @@ let firstNum = null
 let secondNum = null
 let operation = null
 
+
+
+
+
 // this function takes in the number you type in the input field and saves it to the "firstNum" variable
 const saveFirstNumber = (num) => {
   if (firstNum === null){
@@ -21,8 +25,15 @@ const saveSecondNumber = (num) => {
   {
     secondNum = parseInt(num)
   }
+  else
+  {
+    firstNum = null
+    secondNum = null
+    saveFirstNumber(num)
+  }
     
 }
+
 
 // this function takes in two argument/numbers and returns the sum of them
 const add = (numA, numB) => {
@@ -39,12 +50,12 @@ const subtract = (numA, numB) => {
 // These variables are already defined but that don't point to functions. It's up to you to build the functions to complete your calculator use:
 
 const multiply = (numA, numB) => {
-
+  console.log(numA, numB)
   const product = numA * numB
   return product
   // * to get a product then return it
   // Open up the inspector tool in Chrome and select the Console tab to see what this functions is "logging out" to the console.
-  console.log(numA, numB)
+  
 }
 
 const divide = (numA, numB) => {
@@ -86,9 +97,6 @@ const putResultInElement = (operationResults) => {
   // Here we give it a string: "Results: " and add the value of the operation to it.
 }
 
-const reset = () =>{
-  document.getElementById("display").innerHTML = "0"
-}
 
 // The function uses the value of "operation" variable to determine which operation function it should use on the number: add, subtract, multiply, divide, or modulus
 const equals = () => {
@@ -105,4 +113,11 @@ const equals = () => {
     break;
     default: "Choose an operation"
   }
+}
+const reset = () =>{
+  console.log(6)
+  firstNum = " "
+  operation = " "
+  secondNum = 0
+  document.getElementById("display").innerHTML = firstNum + " " + operation + " " + secondNum
 }
